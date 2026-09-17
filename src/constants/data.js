@@ -1,4 +1,4 @@
-// 1. IMPORT GAMBAR DI SINI
+// 1. IMPORT GAMBAR LOKAL TETAP AMAN
 import imgHaircut from "../assets/images/haircut.png";
 import imgTreatment from "../assets/images/hairtreatment.png";
 import imgMakeup from "../assets/images/makeup2.png";
@@ -7,19 +7,19 @@ export const serviceCategories = [
   {
     id: "hair-cut-styling",
     title: "Hair Cut & Styling",
-    image: imgHaircut, // 2. PANGGIL VARIABEL TANPA TANDA KUTIP
+    image: imgHaircut,
     items: [
       { name: "Potong Rambut + Cuci Blow Anak", price: "Rp 15.000" },
       { name: "Potong Rambut + Cuci Blow Dewasa", price: "Rp 20.000" },
       { name: "Cuci Blow", price: "Rp 15.000" },
       { name: "Cuci Blow Catok", price: "Rp 20.000" },
-      { name: "Hair Do", price: "Rp 25.000" },
+      { name: "Hair Do", price: "Rp 25.000" }, // <- Sudah dikembalikan
     ],
   },
   {
     id: "hair-treatment",
     title: "Hair Treatment",
-    image: imgTreatment, // PANGGIL VARIABEL
+    image: imgTreatment,
     items: [
       {
         name: "Creambath Anak",
@@ -61,10 +61,8 @@ export const serviceCategories = [
   {
     id: "coloring",
     title: "Coloring",
-    // Untuk Coloring, kamu masih pakai link Unsplash. Biarkan saja berupa string kutip. 
-    // Kalau nanti ada file fotonya, tinggal import juga seperti di atas ya.
-    image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
+    // Kalau ibumu punya foto hasil pewarnaan rambut, tinggal import dan ganti link ini ya
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
     items: [
       {
         name: "Cat Henna",
@@ -106,12 +104,12 @@ export const serviceCategories = [
   {
     id: "face-body",
     title: "Face & Body",
-    image: imgMakeup, // PANGGIL VARIABEL
+    image: imgMakeup,
     items: [
       { name: "Massage + Scrub (Lulur)", price: "Rp 75.000" },
       { name: "Facial Wardah", price: "Rp 50.000" },
       { name: "Totok Wajah", price: "Rp 25.000" },
-      { name: "Make Up Wisuda", price: "Rp -" },
+      { name: "Make Up Wisuda", price: "Rp -" }, // <- Sudah dikembalikan
     ],
   },
 ];

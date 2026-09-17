@@ -11,29 +11,33 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Fungsi JavaScript khusus untuk mengatur scroll yang mulus
   const handleScroll = (e, href) => {
-    e.preventDefault(); // Mencegah efek teleport bawaan HTML
+    e.preventDefault(); 
     
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
 
     if (element) {
-      const navbarHeight = 80; // Jarak agar judul tidak tertutup Navbar
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+      // 1. Tutup menu mobile terlebih dahulu
+      setIsOpen(false);
+      
+      // 2. Beri jeda sangat singkat agar menu selesai tertutup
+      // sebelum layar meluncur, agar browser tidak bingung
+      setTimeout(() => {
+        const navbarHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth", // Animasi geser mulusnya diatur di sini
-      });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }, 50); // jeda 50 milidetik
     }
-    
-    setIsOpen(false); // Otomatis menutup menu mobile kalau sedang dibuka
   };
 
   return (
-    <nav className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md shadow-sm">
+    <nav className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Nama Salon */}
         <a
@@ -81,7 +85,9 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t"
+            // Tambahan 'absolute left-0 top-full w-full' agar menu melayang 
+            // dan tidak merusak layout saat dibuka
+            className="md:hidden absolute left-0 top-full w-full overflow-hidden bg-white/95 backdrop-blur-md border-t shadow-lg"
           >
             {navLinks.map((link) => (
               <li key={link.href}>
