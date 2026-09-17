@@ -2,7 +2,7 @@ import { HiChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 import { motion } from "framer-motion";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "6283198734465";
+  const phoneNumber = "6289650093331";
   const message = "Halo, saya ingin reservasi perawatan di Salon Muslimah Khalifah";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 

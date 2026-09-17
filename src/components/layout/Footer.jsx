@@ -29,12 +29,12 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <HiOutlinePhone className="w-5 h-5 text-pink-500 shrink-0" />
                 <a
-                  href="https://wa.me/6283198734465"
+                  href="https://wa.me/6289650093331"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-pink-500 transition-colors"
                 >
-                  0831-9873-4465
+                  089650093331
                 </a>
               </li>
               <li className="flex items-center gap-3">
